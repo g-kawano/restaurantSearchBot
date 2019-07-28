@@ -49,9 +49,16 @@ async function handleDefaultMessage(payload, callback) {
       
       var data = querystring.parse(payload.postback.data);
       
+      
       var resultSet = await Gurunavi.getrestaurant(data.latitude,data.longitude,data.category_l);
-      console.log(resultSet.rest[0]);
-      var messages = await Utils.buildCarouselMessages(resultSet.rest,data);
+      console.log(resultSet);
+      
+      var messages = resultSet =="指定された条件の店舗が存在しません" 
+      ?  [{
+          type: "text", 
+          text: "近くにお探しのお店は見つかりませんでした。"
+         }]
+      : await Utils.buildCarouselMessages(resultSet.rest,data);
       
       var replayrestaurant = JSON.stringify({
           replyToken: payload.replyToken,

@@ -26,6 +26,7 @@ exports.getrestaurant = async function(latitude,longitude,category_l){
             
         }catch(error){
             console.log(error.message);
-            throw new Error(error.message);
+            var errorMessage = JSON.parse(error.message.slice(5)).error[0].message;
+            return errorMessage;
         }
 }

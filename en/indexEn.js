@@ -27,8 +27,12 @@ async function handleDefaultMessage(payload, callback) {
       var data = querystring.parse(payload.postback.data);
       
       var resultSet = await Gurunavi.getrestaurant(data.latitude,data.longitude,data.category_l);
-      
-      var messages = await Utils.buildCarouselMessages(resultSet.rest,data);
+      var messages = resultSet =="指定された条件の店舗が存在しません" 
+      ?  [{
+          type: "text", 
+          text: "The shop was not found."
+         }]
+      : await Utils.buildCarouselMessages(resultSet.rest,data);
       
       var replayrestaurant = JSON.stringify({
           replyToken: payload.replyToken,
