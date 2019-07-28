@@ -79,7 +79,8 @@ async function handleDefaultMessage(payload, callback) {
                             {
                                 "type": "postback",
                                 "label": "Western food",
-                                "displayText": "Western food","data": `category_l=RSFST13000&latitude=${latitude}&longitude=${longitude}`
+                                "displayText": "Western food",
+                                "data": `category_l=RSFST13000&latitude=${latitude}&longitude=${longitude}`
                                 
                             },
                             {

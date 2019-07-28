@@ -22,29 +22,6 @@ async function handleDefaultMessage(payload, callback) {
 
   }
 
-  async function handledengerjudge(payload, callback) {
-      
-      var postbackdata = JSON.parse(payload.postback.data);
-
-    
-    var txt = payload.postback.data;
-    
-    var selectedmessage = JSON.stringify({
-        replyToken: payload.replyToken,
-        messages: [
-            {
-                type: "text", 
-                text: "選択肢" + postbackdata.select + "を選択しました!　緯度：" + postbackdata.latitude + "経度：" + postbackdata.longitude
-            }
-         ]
-     });
-
-     await Line.postMessage(selectedmessage);
-
-    callback(null, "");
-
-  }
-
   async function searchrestaurant(payload, callback) {
       
       var data = querystring.parse(payload.postback.data);
@@ -105,7 +82,8 @@ async function handleDefaultMessage(payload, callback) {
                             {
                                 "type": "postback",
                                 "label": "洋食",
-                                "displayText": "洋食","data": `category_l=RSFST13000&latitude=${latitude}&longitude=${longitude}`
+                                "displayText": "洋食",
+                                "data": `category_l=RSFST13000&latitude=${latitude}&longitude=${longitude}`
                                 
                             },
                             {
