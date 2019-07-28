@@ -1,0 +1,17 @@
+{
+  "name": "restaurantsearchbot",
+  "version": "1.0.0",
+  "description": "位置情報からレストランを検索できます。",
+  "main": "index.js",
+  "dependencies": {
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "go-kawano",
+  "license": "ISC"
+}
