@@ -1,7 +1,6 @@
 const Trans = require('./translate');
 
 exports.buildCarouselMessages = async function(restList, presentLocation){
-    console.log("翻訳するよーーーーーーーーーー");
     const carouselColumns = await Promise.all(restList.map(async(element) =>{
         var translatedName = await Trans.translateMessage(element.name);
         return {
